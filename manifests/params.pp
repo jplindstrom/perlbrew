@@ -16,8 +16,12 @@ class perlbrew::params {
       $perlbrew_root      = '/opt/perl5'
       $perlbrew_init_file = '/etc/profile.d/perlbrew.sh'
     }
+    'Debian': {
+      $perlbrew_root      = '/opt/perl5'
+      $perlbrew_init_file = '/etc/profile.d/perlbrew.sh'
+    }
     default: {
-      fail("${::operatingsystem} not supported")
+      fail("${::osfamily} (${::operatingsystem}) not supported")
     }
   }
 
